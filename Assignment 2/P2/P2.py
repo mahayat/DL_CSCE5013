@@ -5,10 +5,10 @@ def f(x,w):
     return 1/(1+np.exp(-w*x))
 
 def loss(x,w,d):
-    return d*np.log(f(x,w))+(1-d)*np.log(1-f(x,w))
+    return -d*np.log(f(x,w))-(1-d)*np.log(1-f(x,w))
 
 def dloss(x,w,d):
-    return f(x,w)-(1-d)*w*x
+    return (f(x,w)-d)*x
 #%%
 w = 0 
 dw = 0.5
