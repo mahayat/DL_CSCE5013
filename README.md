@@ -1,4 +1,4 @@
-# CSCE 5013 : Deep Learning (University of Arkansas)
+# CSCE 5013 : Deep Learning (University of Arkansas) (Fall 2019)
 Instructor: [Thi Hoang Ngan Le](https://www.andrew.cmu.edu/user/thihoanl/)
 
 Text:
