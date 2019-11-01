@@ -38,28 +38,20 @@ class Conv1D:
                 for i in range(self.out_width):
                     self.db[c] += delta[n,c,i]
         
-        
-        for n in range(self.samples):
-            for c in range(self.out_channel):
+        for c in range(self.out_channel):
                 for j in range(self.in_channel):
                     for k in range(self.kernal_size):
-                        for i in range(self.out_width):
-                            self.dW[c,j,k] += delta[n,c,i]*self.data[n,j,(self.stride*i)+k]
+                        for n in range(self.samples):
+                            for i in range(self.out_width):
+                                self.dW[c,j,k] += delta[n,c,i]*self.data[n,j,(self.stride*i)+k]
                             
         for n in range(self.samples):
             for j in range(self.in_channel):
-                for i in range(self.out_width):
-                    for k in range(self.kernal_size):
-                        for c in range(self.out_channel):
+                for k in range(self.kernal_size):
+                    for c in range(self.out_channel):
+                        for i in range(self.out_width):
                             self.dX[n,j,((self.stride*i)+k)] += delta[n,c,i]*self.W[c,j,k]
                                   
         return self.db, self.dW, self.dX
 
-
-
-                    
-
-        
-
-         
     
